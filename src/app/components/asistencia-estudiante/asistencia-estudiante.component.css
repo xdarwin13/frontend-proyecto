@@ -1,127 +1,119 @@
 /* Estilo general */
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Contenedor del escáner QR */
-.scanner-container {
-    max-height: 400px; /* Ajusta según sea necesario */
-    overflow: hidden; /* Oculta cualquier contenido que sobresalga */
-    display: flex;
-    justify-content: center; /* Centra el escáner */
-    margin-bottom: 20px; /* Espaciado entre el escáner y el siguiente contenido */
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 /* Estilo del escáner QR */
 zxing-scanner {
-    display: block;
-    width: 70%;
-    height: auto; /* Ajustar la altura de acuerdo a la relación de aspecto */
-    max-height: 400px; /* Altura máxima para evitar que la cámara se salga del contenedor */
-    border: 2px solid #ddd;
-    border-radius: 8px;
+  display: block;
+  width: 100%;
+  height: auto; /* Ajustar la altura de acuerdo a la relación de aspecto */
+  max-height: 400px; /* Altura máxima para evitar que la cámara se salga del contenedor */
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 /* Mensaje del salón escaneado */
 p {
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
 }
 
 button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 /* Estilo del formulario */
 form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 form div {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 label {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 5px;
-    display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+  display: block;
 }
 
 input {
-    width: 100%;
-    padding: 8px 12px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 input:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
 }
 
 /* Mensajes de error */
 .error {
-    color: #ff4d4d;
-    font-size: 12px;
-    margin-top: 5px;
+  color: #ff4d4d;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 /* Alineación centrada del botón */
 button[type="submit"] {
-    align-self: center;
-    width: 150px;
+  align-self: center;
+  width: 150px;
 }
 
 /* Mejoras visuales para pantallas más pequeñas */
 @media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
+  .container {
+    padding: 15px;
+  }
 
-    h2 {
-        font-size: 20px;
-    }
+  h2 {
+    font-size: 20px;
+  }
 
-    input {
-        font-size: 13px;
-    }
+  input {
+    font-size: 13px;
+  }
 
-    button {
-        font-size: 14px;
-    }
+  button {
+    font-size: 14px;
+  }
 }
 
 /* Meta tag para evitar zoom en móviles */
