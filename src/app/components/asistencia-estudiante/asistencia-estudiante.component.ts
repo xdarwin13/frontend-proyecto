@@ -70,9 +70,9 @@ export class AsistenciaEstudianteComponent implements OnInit {
     const width = window.innerWidth;
 
     if (width < 768) { // Pantallas pequeñas
-      this.scannerHeight = '200px'; // Altura más pequeña
+      this.scannerHeight = '400px'; // Altura más pequeña
     } else {
-      this.scannerHeight = '300px'; // Altura predeterminada
+      this.scannerHeight = '400px'; // Altura predeterminada
     }
   }
 }
