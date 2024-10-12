@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AsistenciaEstudianteService } from '../../services/asistencia-estudiante.service';
 import { AuthestudiantesService } from '../../services/authestudiantes.service';
+import { MateriaService } from '../../services/materia.service'; // Importar el servicio de materia
 
 @Component({
   selector: 'app-asistencia-estudiante',
@@ -13,22 +14,37 @@ export class AsistenciaEstudianteComponent implements OnInit {
   scannerEnabled: boolean = true;
   scannedSalon: string | null = null;
   id_estudiante: number | null = null;
+  materias: any[] = []; // Arreglo para almacenar las materias
   scannerHeight: string = '300px'; // Altura predeterminada
 
   constructor(
     private fb: FormBuilder,
     private asistenciaService: AsistenciaEstudianteService, // Inyecta el servicio de asistencia
-    private authService: AuthestudiantesService // Servicio de autenticación
+    private authService: AuthestudiantesService, // Servicio de autenticación
+    private materiaService: MateriaService // Servicio de materias
   ) {
     this.asistenciaForm = this.fb.group({
-      materia: ['', Validators.required],
+      id_materia: ['', Validators.required],
       hora_salida: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
-    // Obtener el ID del estudiante desde el servicio de autenticación
+    // Obtener el ID del estudiante y la carrera desde el servicio de autenticación
     this.id_estudiante = this.authService.getUserId();
+    const carrera = this.authService.getCarrera(); // Obtener la carrera
+
+    if (carrera) {
+      // Llamar al servicio de materias para obtener las materias según la carrera
+      this.materiaService.getMateriasPorCarrera(carrera).subscribe(
+        (response) => {
+          this.materias = response.materias; // Asignar las materias obtenidas
+        },
+        (error) => {
+          console.error('Error al obtener las materias:', error);
+        }
+      );
+    }
   }
 
   // Método para manejar el resultado del escaneo de QR

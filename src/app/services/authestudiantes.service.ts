@@ -20,6 +20,8 @@ export class AuthestudiantesService {
         // Almacena el token y el userId en el localStorage
         localStorage.setItem('authToken1', response.token1); // Almacena el token
         localStorage.setItem('userId1', response.student.id); // Almacena el userId
+        localStorage.setItem('carrera1', response.student.carrera); // Almacena la carrera
+
       })
     );
   }
@@ -28,6 +30,12 @@ export class AuthestudiantesService {
     // Recupera el userId del localStorage
     const userId = localStorage.getItem('userId1');
     return userId ? parseInt(userId, 10) : null;
+  }
+
+
+  getCarrera(): string | null {
+    // Recupera la carrera del localStorage
+    return localStorage.getItem('carrera1');
   }
 
   getToken(): string | null {
@@ -39,6 +47,7 @@ export class AuthestudiantesService {
     // Elimina el token y el userId del localStorage
     localStorage.removeItem('authToken1');
     localStorage.removeItem('userId1');
+    localStorage.removeItem('carrera1');
   }
 
 }

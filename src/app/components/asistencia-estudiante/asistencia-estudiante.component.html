@@ -1,23 +1,23 @@
 <div class="container">
     <h2>Registrar Asistencia - Estudiantes</h2>
   
-    <!-- Contenedor del escáner de QR -->
     <div class="scanner-container" *ngIf="scannerEnabled">
         <zxing-scanner (scanSuccess)="onCodeResult($event)" [style.max-height]="scannerHeight"></zxing-scanner>
     </div>
   
-    <!-- Muestra el salón escaneado -->
     <div *ngIf="scannedSalon">
         <p>Salón escaneado: {{ scannedSalon }}</p>
         <button (click)="reiniciarEscaner()">Reiniciar escáner</button>
     </div>
   
-    <!-- Formulario de asistencia -->
     <form [formGroup]="asistenciaForm" (ngSubmit)="registrarAsistencia()">
         <div>
-            <label for="materia">Materia</label>
-            <input id="materia" formControlName="materia" />
-            <div *ngIf="asistenciaForm.get('materia')?.invalid && asistenciaForm.get('materia')?.touched">
+            <label for="id_materia">Materia</label>
+            <select id="id_materia" formControlName="id_materia">
+                <option value="" disabled selected>Selecciona una materia</option>
+                <option *ngFor="let materia of materias" [value]="materia.id">{{ materia.nombre }}</option>
+            </select>
+            <div *ngIf="asistenciaForm.get('id_materia')?.invalid && asistenciaForm.get('id_materia')?.touched">
                 <small class="error">Materia es requerida</small>
             </div>
         </div>
