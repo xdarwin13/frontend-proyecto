@@ -26,7 +26,7 @@ h2 {
 /* Estilo del escáner QR */
 zxing-scanner {
     display: block;
-    width: 70%;
+    width: 100%;
     height: auto; /* Ajustar la altura de acuerdo a la relación de aspecto */
     max-height: 400px; /* Altura máxima para evitar que la cámara se salga del contenedor */
     border: 2px solid #ddd;
