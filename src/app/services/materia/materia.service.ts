@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthestudiantesService } from './authestudiantes.service'; // Asegúrate de que la ruta sea correcta
+import { AuthestudiantesService } from '../estudiante/authestudiantes.service';
 
 @Injectable({
   providedIn: 'root'

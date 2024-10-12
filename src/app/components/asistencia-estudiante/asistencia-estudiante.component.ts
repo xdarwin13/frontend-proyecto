@@ -1,9 +1,10 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AsistenciaEstudianteService } from '../../services/asistencia-estudiante.service';
-import { AuthestudiantesService } from '../../services/authestudiantes.service';
-import { MateriaService } from '../../services/materia.service'; // Importar el servicio de materia
+import { AsistenciaEstudianteService } from '../../services/asistencia/asistencia-estudiante.service';
+import { AuthestudiantesService } from '../../services/estudiante/authestudiantes.service';
+import { MateriaService } from '../../services/materia/materia.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-asistencia-estudiante',
   templateUrl: './asistencia-estudiante.component.html',
