@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AsistenciaEstudianteService } from '../../services/asistencia-estudiante.service';
 import { AuthestudiantesService } from '../../services/authestudiantes.service';
 import { MateriaService } from '../../services/materia.service'; // Importar el servicio de materia
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-asistencia-estudiante',
   templateUrl: './asistencia-estudiante.component.html',
@@ -19,6 +19,7 @@ export class AsistenciaEstudianteComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     private asistenciaService: AsistenciaEstudianteService, // Inyecta el servicio de asistencia
     private authService: AuthestudiantesService, // Servicio de autenticación
     private materiaService: MateriaService // Servicio de materias
@@ -83,6 +84,13 @@ export class AsistenciaEstudianteComponent implements OnInit {
   reiniciarEscaner() {
     this.scannedSalon = null;
     this.scannerEnabled = true;
+  }
+
+  // Método para cerrar sesión
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login-students']);
+    
   }
 
   // Ajuste de tamaño del escáner

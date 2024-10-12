@@ -151,3 +151,31 @@ select:focus {
 option {
     padding: 10px; /* Espaciado dentro de las opciones */
 }
+
+/* Estilo para el botón de cerrar sesión */
+.logout-button {
+    background-color: #dc3545; /* Rojo */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Espaciado superior */
+}
+
+.logout-button:hover {
+    background-color: #c82333; /* Rojo más oscuro en hover */
+}
+
+.logout-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Mejorar alineación */
+.logout-button {
+    align-self: center;
+    width: 150px; /* Ancho fijo para mantener uniformidad */
+}
