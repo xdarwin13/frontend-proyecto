@@ -50,6 +50,11 @@ export class AsistenciaEstudianteComponent implements OnInit {
       this.asistenciaService.registrarAsistencia(asistenciaData).subscribe(
         (response) => {
           console.log('Asistencia registrada:', response);
+          
+          // Restablecer el formulario y los datos del escáner
+          this.asistenciaForm.reset();
+          this.scannedSalon = null;
+          this.reiniciarEscaner();
         },
         (error) => {
           console.error('Error al registrar la asistencia:', error);
