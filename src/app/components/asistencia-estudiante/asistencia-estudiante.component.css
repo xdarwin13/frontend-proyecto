@@ -125,3 +125,29 @@ button[type="submit"] {
 }
 
 /* Meta tag para evitar zoom en móviles */
+
+/* Estilo para el select de materia */
+select {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff; /* Fondo blanco para el select */
+    appearance: none; /* Eliminar la flecha predeterminada */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>'); /* Añadir una flecha personalizada */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Posición de la flecha */
+    background-size: 12px; /* Tamaño de la flecha */
+}
+
+select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+/* Estilo adicional para mejorar el aspecto del select */
+option {
+    padding: 10px; /* Espaciado dentro de las opciones */
+}
