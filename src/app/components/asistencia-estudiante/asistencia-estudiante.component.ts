@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AsistenciaEstudianteService } from '../../services/asistencia-estudiante.service';
 import { AuthestudiantesService } from '../../services/authestudiantes.service';
@@ -13,6 +13,7 @@ export class AsistenciaEstudianteComponent implements OnInit {
   scannerEnabled: boolean = true;
   scannedSalon: string | null = null;
   id_estudiante: number | null = null;
+  scannerHeight: string = '300px'; // Altura predeterminada
 
   constructor(
     private fb: FormBuilder,
@@ -61,5 +62,17 @@ export class AsistenciaEstudianteComponent implements OnInit {
   reiniciarEscaner() {
     this.scannedSalon = null;
     this.scannerEnabled = true;
+  }
+
+  // Ajuste de tamaño del escáner
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    const width = window.innerWidth;
+
+    if (width < 768) { // Pantallas pequeñas
+      this.scannerHeight = '200px'; // Altura más pequeña
+    } else {
+      this.scannerHeight = '300px'; // Altura predeterminada
+    }
   }
 }

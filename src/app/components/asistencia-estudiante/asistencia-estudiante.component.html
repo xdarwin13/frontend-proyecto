@@ -3,7 +3,7 @@
   
     <!-- Escáner de QR -->
     <div *ngIf="scannerEnabled">
-      <zxing-scanner (scanSuccess)="onCodeResult($event)"></zxing-scanner>
+      <zxing-scanner (scanSuccess)="onCodeResult($event)" [style.max-height]="scannerHeight"></zxing-scanner>
     </div>
   
     <!-- Muestra el salón escaneado -->
@@ -14,15 +14,15 @@
   
     <!-- Formulario de asistencia -->
     <form [formGroup]="asistenciaForm" (ngSubmit)="registrarAsistencia()">
-      <div class="form-group">
+      <div>
         <label for="materia">Materia</label>
-        <input id="materia" formControlName="materia" placeholder="Ingresa la materia" />
+        <input id="materia" formControlName="materia" />
         <div *ngIf="asistenciaForm.get('materia')?.invalid && asistenciaForm.get('materia')?.touched">
           <small class="error">Materia es requerida</small>
         </div>
       </div>
   
-      <div class="form-group">
+      <div>
         <label for="hora_salida">Hora de Salida</label>
         <input id="hora_salida" type="time" formControlName="hora_salida" />
         <div *ngIf="asistenciaForm.get('hora_salida')?.invalid && asistenciaForm.get('hora_salida')?.touched">
