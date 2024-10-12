@@ -8,6 +8,7 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
   
+  /* Encabezado */
   h2 {
     text-align: center;
     color: #333;
@@ -18,8 +19,8 @@
   zxing-scanner {
     display: block;
     width: 100%;
-    height: auto; /* Ajustar la altura de acuerdo a la relación de aspecto */
-    max-height: 400px; /* Altura máxima para evitar que la cámara se salga del contenedor */
+    height: auto;
+    max-height: 400px;
     border: 2px solid #ddd;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -32,6 +33,7 @@
     color: #333;
   }
   
+  /* Botón */
   button {
     background-color: #007bff;
     color: #fff;
@@ -41,8 +43,10 @@
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    width: 100%; /* Asegura que el botón sea del ancho completo */
   }
   
+  /* Efecto hover */
   button:hover {
     background-color: #0056b3;
   }
@@ -58,17 +62,19 @@
     flex-direction: column;
   }
   
-  form div {
+  /* Estilo del grupo de formularios */
+  .form-group {
     margin-bottom: 15px;
   }
   
+  /* Etiqueta */
   label {
     font-size: 14px;
     color: #555;
     margin-bottom: 5px;
-    display: block;
   }
   
+  /* Entrada de texto */
   input {
     width: 100%;
     padding: 8px 12px;
@@ -78,6 +84,7 @@
     box-sizing: border-box;
   }
   
+  /* Estilo de enfoque */
   input:focus {
     outline: none;
     border-color: #007bff;
@@ -91,13 +98,7 @@
     margin-top: 5px;
   }
   
-  /* Alineación centrada del botón */
-  button[type="submit"] {
-    align-self: center;
-    width: 150px;
-  }
-  
-  /* Mejoras visuales para pantallas más pequeñas */
+  /* Mejora de visualización para pantallas más pequeñas */
   @media (max-width: 768px) {
     .container {
       padding: 15px;
@@ -108,7 +109,7 @@
     }
   
     input {
-      font-size: 13px;
+      font-size: 14px;
     }
   
     button {

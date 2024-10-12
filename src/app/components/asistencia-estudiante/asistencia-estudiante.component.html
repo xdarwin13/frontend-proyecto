@@ -14,17 +14,15 @@
   
     <!-- Formulario de asistencia -->
     <form [formGroup]="asistenciaForm" (ngSubmit)="registrarAsistencia()">
-      <div>
+      <div class="form-group">
         <label for="materia">Materia</label>
-        <input id="materia" formControlName="materia" />
+        <input id="materia" formControlName="materia" placeholder="Ingresa la materia" />
         <div *ngIf="asistenciaForm.get('materia')?.invalid && asistenciaForm.get('materia')?.touched">
           <small class="error">Materia es requerida</small>
         </div>
       </div>
   
-   
-  
-      <div>
+      <div class="form-group">
         <label for="hora_salida">Hora de Salida</label>
         <input id="hora_salida" type="time" formControlName="hora_salida" />
         <div *ngIf="asistenciaForm.get('hora_salida')?.invalid && asistenciaForm.get('hora_salida')?.touched">
