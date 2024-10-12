@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthestudiantesService {
 
-  private apiUrl = 'http://192.168.101.86:4000/estudiantes'; // Cambia esta URL a la de tu backend
+  private apiUrl = 'https://backend-proyecto-vhbm.onrender.com/estudiantes'; // Cambia esta URL a la de tu backend
 
   constructor(private http: HttpClient) { }
 

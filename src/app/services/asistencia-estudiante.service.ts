@@ -7,7 +7,7 @@ import { AuthestudiantesService } from './authestudiantes.service'; // Asegúrat
   providedIn: 'root'
 })
 export class AsistenciaEstudianteService {
-  private apiUrl = 'http://localhost:4000/asistencias'; // Cambia esta URL a la de tu backend
+  private apiUrl = 'https://backend-proyecto-vhbm.onrender.com/asistencias'; // Cambia esta URL a la de tu backend
 
   constructor(
     private http: HttpClient,
