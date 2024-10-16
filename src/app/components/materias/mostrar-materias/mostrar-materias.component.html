@@ -1,0 +1,31 @@
+<!-- materias-table.component.html -->
+<div class="materias-container">
+    <p-card class="materias-card">
+      <ng-template pTemplate="header">
+        <div class="card-header">
+          <h3>Registros de Materias</h3>
+          <button pButton pRipple label="Crear Materia" icon="pi pi-user-plus" class="create-button" routerLink="/dashboard/materias/crear"></button>
+        </div>
+      </ng-template>
+      <p-table [value]="materias" [paginator]="true" [rows]="3" [totalRecords]="materias.length" styleClass="materias-table">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nombre</th>
+            <th>Carrera</th>
+            <th class="actions-column">Acciones</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-materia>
+          <tr>
+            <td>{{ materia.nombre }}</td>
+            <td>{{ materia.carrera }}</td>
+            <td class="actions-cell">
+              <button pButton pRipple icon="pi pi-print" class="action-button p-button-info"></button>
+              <button pButton pRipple icon="pi pi-sync" class="action-button p-button-info" [routerLink]="['/dashboard/materias/edit', materia.id]"></button>
+              <button pButton pRipple icon="pi pi-eraser" class="action-button p-button-danger" [routerLink]="['/dashboard/materias/dele', materia.id]"></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-card>
+  </div>

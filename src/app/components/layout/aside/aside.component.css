@@ -1,0 +1,32 @@
+.logout-button {
+    background-color: #dc3545; /* Rojo */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 150px; /* Ancho fijo para mantener uniformidad */
+    text-align: center; /* Asegura que el texto esté centrado */
+  }
+  
+  .logout-button:hover {
+    background-color: #c82333; /* Rojo más oscuro en hover */
+  }
+  
+  .logout-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+
+  .button-container {
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+    align-items: center; /* Centra el botón verticalmente si es necesario */
+    margin-top: 20px;
+  }
+  
+  

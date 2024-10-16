@@ -1,0 +1,21 @@
+<div class="form-container">
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+      <h2>Actualizar Materia</h2>
+  
+      <div class="input-group">
+        <span class="input-group-icon"><i class="pi pi-book"></i></span>
+        <input type="text" pInputText formControlName="nombre" placeholder="Nombre de la Materia" class="full-width-input">
+      </div>
+  
+      <div class="input-group">
+        <span class="input-group-icon"><i class="pi pi-graduation-cap"></i></span>
+        <input type="text" pInputText formControlName="carrera" placeholder="Carrera" class="full-width-input">
+      </div>
+  
+      <div class="button-group">
+        <button pButton pRipple type="submit" icon="pi pi-check" label="Actualizar" [disabled]="!form.valid" class="p-button-primary"></button>
+        <button pButton pRipple type="button" icon="pi pi-times" label="Cancelar" class="p-button-secondary" (click)="cancel()"></button>
+      </div>
+    </form>
+  </div>
+  

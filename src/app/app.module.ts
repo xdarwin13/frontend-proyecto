@@ -10,13 +10,52 @@ import { AsistenciaEstudianteComponent } from './components/asistencia-estudiant
 
 
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
-
-
+import { HeaderComponent } from './components/layout/header/header.component';
+import { AsideComponent } from './components/layout/aside/aside.component';
+import { ContentComponent } from './components/layout/content/content.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { CrearEstudiantesComponent } from './components/estudiantes/crear-estudiantes/crear-estudiantes.component';
+import { MostrarEstudiantesComponent } from './components/estudiantes/mostrar-estudiantes/mostrar-estudiantes.component';
+import { ActualizarEstudiantesComponent } from './components/estudiantes/actualizar-estudiantes/actualizar-estudiantes.component';
+import { EliminarEstudiantesComponent } from './components/estudiantes/eliminar-estudiantes/eliminar-estudiantes.component';
+import { MostrarAsistenciasComponent } from './components/asistencias/mostrar-asistencias/mostrar-asistencias.component';
+import { ActualizarAsistenciasComponent } from './components/asistencias/actualizar-asistencias/actualizar-asistencias.component';
+import { EliminarAsistenciasComponent } from './components/asistencias/eliminar-asistencias/eliminar-asistencias.component';
+import { CrearMateriasComponent } from './components/materias/crear-materias/crear-materias.component';
+import { MostrarMateriasComponent } from './components/materias/mostrar-materias/mostrar-materias.component';
+import { ActualizarMateriasComponent } from './components/materias/actualizar-materias/actualizar-materias.component';
+import { EliminarMateriasComponent } from './components/materias/eliminar-materias/eliminar-materias.component';
+import { CardModule } from 'primeng/card';
+import { TableModule } from 'primeng/table';
+import {  ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { PaginatorModule } from 'primeng/paginator';
+import { LoginAdminComponent } from './components/login-admin/login-admin.component';
+import { MessageService } from 'primeng/api';
 @NgModule({
   declarations: [
     AppComponent,
     LoginEstudianteComponent,
-    AsistenciaEstudianteComponent
+    AsistenciaEstudianteComponent,
+    HeaderComponent,
+    AsideComponent,
+    ContentComponent,
+    FooterComponent,
+    DashboardComponent,
+    CrearEstudiantesComponent,
+    MostrarEstudiantesComponent,
+    ActualizarEstudiantesComponent,
+    EliminarEstudiantesComponent,
+    MostrarAsistenciasComponent,
+    ActualizarAsistenciasComponent,
+    EliminarAsistenciasComponent,
+    CrearMateriasComponent,
+    MostrarMateriasComponent,
+    ActualizarMateriasComponent,
+    EliminarMateriasComponent,
+LoginAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -24,10 +63,17 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     HttpClientModule
     ,FormsModule,
     ReactiveFormsModule,
-    ZXingScannerModule
+    ZXingScannerModule,
+    PanelMenuModule,
+    CardModule,
+    TableModule,
+    ButtonModule,
+    PaginatorModule,
+    ToastModule
+    
 
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
