@@ -1,1 +1,31 @@
-<p>actualizar-estudiantes works!</p>
+<div class="form-container">
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+      <h2>Actualizar Estudiante</h2>
+  
+      <div class="input-group">
+        <span class="input-group-icon"><i class="pi pi-user"></i></span>
+        <input type="text" pInputText formControlName="nombre" placeholder="Nombre del Estudiante" class="full-width-input">
+      </div>
+  
+      <div class="input-group">
+        <span class="input-group-icon"><i class="pi pi-envelope"></i></span>
+        <input type="email" pInputText formControlName="email" placeholder="Email" class="full-width-input">
+      </div>
+  
+      <div class="input-group">
+        <span class="input-group-icon"><i class="pi pi-graduation-cap"></i></span>
+        <input type="text" pInputText formControlName="carrera" placeholder="Carrera" class="full-width-input">
+      </div>
+  
+      <div class="input-group">
+        <span class="input-group-icon"><i class="pi pi-lock"></i></span>
+        <input type="password" pInputText formControlName="password" placeholder="Nueva Contraseña" class="full-width-input">
+      </div>
+  
+      <div class="button-group">
+        <button pButton pRipple type="submit" icon="pi pi-check" label="Actualizar" [disabled]="!form.valid" class="p-button-primary"></button>
+        <button pButton pRipple type="button" icon="pi pi-times" label="Cancelar" class="p-button-secondary" (click)="cancel()"></button>
+      </div>
+    </form>
+  </div>
+  
