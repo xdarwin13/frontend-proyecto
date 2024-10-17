@@ -3,7 +3,7 @@
       <ng-template pTemplate="header">
         <div class="card-header">
           <h3>Registros de Estudiantes</h3>
-          <button pButton pRipple label="Crear Estudiante" icon="pi pi-user-plus" class="create-button" routerLink="/dashboard/estudiantes/crear"></button>
+          <button pButton pRipple label="Crear Estudiante" icon="pi pi-plus" class="create-button" routerLink="/dashboard/estudiantes/crear"></button>
         </div>
       </ng-template>
       <p-table [value]="estudiantes" [paginator]="true" [rows]="3" [totalRecords]="estudiantes.length" styleClass="estudiantes-table">

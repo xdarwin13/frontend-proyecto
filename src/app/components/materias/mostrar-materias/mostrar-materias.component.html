@@ -4,7 +4,7 @@
       <ng-template pTemplate="header">
         <div class="card-header">
           <h3>Registros de Materias</h3>
-          <button pButton pRipple label="Crear Materia" icon="pi pi-user-plus" class="create-button" routerLink="/dashboard/materias/crear"></button>
+          <button pButton pRipple label="Crear Materia" icon="pi pi-plus" class="create-button" routerLink="/dashboard/materias/crear"></button>
         </div>
       </ng-template>
       <p-table [value]="materias" [paginator]="true" [rows]="3" [totalRecords]="materias.length" styleClass="materias-table">

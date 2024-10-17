@@ -16,7 +16,7 @@ import { ActualizarMateriasComponent } from './components/materias/actualizar-ma
 // Asistencias
 import { MostrarAsistenciasComponent } from './components/asistencias/mostrar-asistencias/mostrar-asistencias.component';
 import { ActualizarAsistenciasComponent } from './components/asistencias/actualizar-asistencias/actualizar-asistencias.component';
-import { EliminarAsistenciasComponent } from './components/asistencias/eliminar-asistencias/eliminar-asistencias.component';
+
 
 // Estudiantes
 import { CrearEstudiantesComponent } from './components/estudiantes/crear-estudiantes/crear-estudiantes.component';
@@ -39,9 +39,9 @@ const routes: Routes = [
       { path: 'materias/edit/:id', component: ActualizarMateriasComponent },
 
       // Asistencia
-      { path: 'mostrar-asistencias', component: MostrarAsistenciasComponent },
-      { path: 'actualizar-asistencias', component: ActualizarAsistenciasComponent },
-      { path: 'eliminar-asistencias', component: EliminarAsistenciasComponent },
+      { path: 'asistencias', component: MostrarAsistenciasComponent },
+      { path: 'asistencias/edit/:id', component: ActualizarAsistenciasComponent },
+  
 
       // Estudiantes
       { path: 'estudiantes/crear', component: CrearEstudiantesComponent },

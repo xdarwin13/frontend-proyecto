@@ -19,7 +19,7 @@ export class AsideComponent {
       {
         label: 'Asistencia',
         icon: 'pi pi-fw pi-calendar',
-        routerLink: '/dashboard/mostrar-asistencias'
+        routerLink: '/dashboard/asistencias'
       },
       {
         label: 'Estudiantes',

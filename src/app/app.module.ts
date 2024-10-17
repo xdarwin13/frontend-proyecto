@@ -21,7 +21,7 @@ import { MostrarEstudiantesComponent } from './components/estudiantes/mostrar-es
 import { ActualizarEstudiantesComponent } from './components/estudiantes/actualizar-estudiantes/actualizar-estudiantes.component';
 import { MostrarAsistenciasComponent } from './components/asistencias/mostrar-asistencias/mostrar-asistencias.component';
 import { ActualizarAsistenciasComponent } from './components/asistencias/actualizar-asistencias/actualizar-asistencias.component';
-import { EliminarAsistenciasComponent } from './components/asistencias/eliminar-asistencias/eliminar-asistencias.component';
+
 import { CrearMateriasComponent } from './components/materias/crear-materias/crear-materias.component';
 import { MostrarMateriasComponent } from './components/materias/mostrar-materias/mostrar-materias.component';
 import { ActualizarMateriasComponent } from './components/materias/actualizar-materias/actualizar-materias.component';
@@ -52,7 +52,6 @@ import { MessageModule } from 'primeng/message';
     ActualizarEstudiantesComponent,
     MostrarAsistenciasComponent,
     ActualizarAsistenciasComponent,
-    EliminarAsistenciasComponent,
     CrearMateriasComponent,
     MostrarMateriasComponent,
     ActualizarMateriasComponent,

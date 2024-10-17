@@ -1,1 +1,38 @@
-<p>mostrar-asistencias works!</p>
+<div class="asistencias-container">
+  <p-card class="asistencias-card">
+    <ng-template pTemplate="header">
+      <div class="card-header">
+        <h3>Registros de Asistencias</h3>
+        
+      </div>
+    </ng-template>
+    <p-table [value]="asistencias" [paginator]="true" [rows]="3" [totalRecords]="asistencias.length" styleClass="asistencias-table">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Estudiante</th>
+          <th>Materia</th>
+          <th>Salón</th>
+          <th>Fecha</th>
+          <th>Hora Entrada</th>
+          <th>Hora Salida</th>
+          <th class="actions-column">Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-asistencia>
+        <tr>
+          <td>{{ asistencia.nombre_estudiante}}</td>
+          <td>{{ asistencia.nombre_materia }}</td>
+          <td>{{ asistencia.salon }}</td>
+          <td>{{ asistencia.fecha | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ asistencia.hora_entrada }}</td>
+          <td>{{ asistencia.hora_salida }}</td>
+          <td class="actions-cell">
+            <button pButton pRipple icon="pi pi-print" class="action-button p-button-info"></button>
+            <button pButton pRipple icon="pi pi-sync" class="action-button p-button-info" [routerLink]="['/dashboard/asistencias/edit', asistencia.id]"></button>
+            <button pButton pRipple icon="pi pi-eraser" class="action-button p-button-danger" (click)="eliminarAsistencia(asistencia.id)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-card>
+</div>
