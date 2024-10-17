@@ -34,6 +34,11 @@ import { ToastModule } from 'primeng/toast';
 import { PaginatorModule } from 'primeng/paginator';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { MessageService } from 'primeng/api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +74,10 @@ LoginAdminComponent
     TableModule,
     ButtonModule,
     PaginatorModule,
-    ToastModule
+    ToastModule,
+    MessagesModule,
+    MessageModule,
+    BrowserAnimationsModule
     
 
   ],
