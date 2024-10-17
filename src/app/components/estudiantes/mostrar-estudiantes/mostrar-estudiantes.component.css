@@ -1,0 +1,118 @@
+.estudiantes-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .estudiantes-card {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .card-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5rem;
+  }
+  
+  .create-button {
+    background-color: #0891b2;
+    border-color: #0891b2;
+  }
+  
+  .create-button:hover {
+    background-color: #0e7490;
+    border-color: #0e7490;
+  }
+  
+  :host ::ng-deep {
+    .materias-table {
+      .p-datatable-header {
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        padding: 1rem;
+      }
+  
+      .p-datatable-thead > tr > th {
+        background-color: #f8f9fa;
+        color: #333;
+        font-weight: 600;
+        padding: 1rem;
+        border: 1px solid #e9ecef;
+      }
+  
+      .p-datatable-tbody > tr > td {
+        padding: 0.75rem 1rem;
+        border: 1px solid #e9ecef;
+      }
+  
+      .p-datatable-tbody > tr:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+  
+      .p-paginator {
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        padding: 0.5rem;
+      }
+    }
+  }
+  
+  .actions-column {
+    width: 150px;
+    text-align: center;
+  }
+  
+  .actions-cell {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .action-button {
+    padding: 0.5rem;
+  }
+  
+  .action-button.p-button-info {
+    background-color: #3B82F6;
+    border-color: #3B82F6;
+  }
+  
+  .action-button.p-button-info:hover {
+    background-color: #2563EB;
+    border-color: #2563EB;
+  }
+  
+  .action-button.p-button-danger {
+    background-color: #EF4444;
+    border-color: #EF4444;
+  }
+  
+  .action-button.p-button-danger:hover {
+    background-color: #DC2626;
+    border-color: #DC2626;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .actions-column {
+      width: auto;
+    }
+  
+    .actions-cell {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .action-button {
+      margin-bottom: 0.5rem;
+    }
+  }
+  

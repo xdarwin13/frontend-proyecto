@@ -19,7 +19,6 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { CrearEstudiantesComponent } from './components/estudiantes/crear-estudiantes/crear-estudiantes.component';
 import { MostrarEstudiantesComponent } from './components/estudiantes/mostrar-estudiantes/mostrar-estudiantes.component';
 import { ActualizarEstudiantesComponent } from './components/estudiantes/actualizar-estudiantes/actualizar-estudiantes.component';
-import { EliminarEstudiantesComponent } from './components/estudiantes/eliminar-estudiantes/eliminar-estudiantes.component';
 import { MostrarAsistenciasComponent } from './components/asistencias/mostrar-asistencias/mostrar-asistencias.component';
 import { ActualizarAsistenciasComponent } from './components/asistencias/actualizar-asistencias/actualizar-asistencias.component';
 import { EliminarAsistenciasComponent } from './components/asistencias/eliminar-asistencias/eliminar-asistencias.component';
@@ -51,7 +50,6 @@ import { MessageModule } from 'primeng/message';
     CrearEstudiantesComponent,
     MostrarEstudiantesComponent,
     ActualizarEstudiantesComponent,
-    EliminarEstudiantesComponent,
     MostrarAsistenciasComponent,
     ActualizarAsistenciasComponent,
     EliminarAsistenciasComponent,

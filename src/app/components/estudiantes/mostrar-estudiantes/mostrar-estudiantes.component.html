@@ -1,1 +1,30 @@
-<p>mostrar-estudiantes works!</p>
+<div class="estudiantes-container">
+    <p-card class="estudiantes-card">
+      <ng-template pTemplate="header">
+        <div class="card-header">
+          <h3>Registros de Estudiantes</h3>
+          <button pButton pRipple label="Crear Estudiante" icon="pi pi-user-plus" class="create-button" routerLink="/dashboard/estudiantes/crear"></button>
+        </div>
+      </ng-template>
+      <p-table [value]="estudiantes" [paginator]="true" [rows]="3" [totalRecords]="estudiantes.length" styleClass="estudiantes-table">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nombre</th>
+            <th>Carrera</th>
+            <th class="actions-column">Acciones</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-estudiante>
+          <tr>
+            <td>{{ estudiante.nombre }}</td>
+            <td>{{ estudiante.carrera }}</td>
+            <td class="actions-cell">
+              <button pButton pRipple icon="pi pi-print" class="action-button p-button-info"></button>
+              <button pButton pRipple icon="pi pi-sync" class="action-button p-button-info" [routerLink]="['/dashboard/estudiantes/edit', estudiante.id]"></button>
+              <button pButton pRipple icon="pi pi-eraser" class="action-button p-button-danger" (click)="eliminarEstudiante(estudiante.id)"></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-card>
+</div>

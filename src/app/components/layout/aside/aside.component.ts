@@ -24,7 +24,7 @@ export class AsideComponent {
       {
         label: 'Estudiantes',
         icon: 'pi pi-fw pi-user',
-        routerLink: '/dashboard/mostrar-estudiantes'
+        routerLink: '/dashboard/estudiantes'
       },
       {
         label: 'Profesores',

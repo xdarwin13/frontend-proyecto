@@ -41,7 +41,7 @@ export class MostrarMateriasComponent implements OnInit {
     this.materiaService.eliminarMateria(id).subscribe({
       next: () => {
         this.messageService.add({ severity: 'success', summary: 'Éxito', detail: 'Materia eliminada correctamente' });
-        this.router.navigate(['/dashboard/materias']); // Redirigir a la lista de materias
+       this.mostrarMaterias() // Redirigir a la lista de materias
       },
       error: (err) => {
         console.error('Error al eliminar la materia:', err);

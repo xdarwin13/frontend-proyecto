@@ -21,7 +21,6 @@ import { EliminarAsistenciasComponent } from './components/asistencias/eliminar-
 // Estudiantes
 import { CrearEstudiantesComponent } from './components/estudiantes/crear-estudiantes/crear-estudiantes.component';
 import { MostrarEstudiantesComponent } from './components/estudiantes/mostrar-estudiantes/mostrar-estudiantes.component';
-import { EliminarEstudiantesComponent } from './components/estudiantes/eliminar-estudiantes/eliminar-estudiantes.component';
 import { ActualizarEstudiantesComponent } from './components/estudiantes/actualizar-estudiantes/actualizar-estudiantes.component';
 
 const routes: Routes = [
@@ -45,10 +44,9 @@ const routes: Routes = [
       { path: 'eliminar-asistencias', component: EliminarAsistenciasComponent },
 
       // Estudiantes
-      { path: 'crear-estudiantes', component: CrearEstudiantesComponent },
-      { path: 'mostrar-estudiantes', component: MostrarEstudiantesComponent },
-      { path: 'eliminar-estudiantes', component: EliminarEstudiantesComponent },
-      { path: 'actualizar-estudiantes', component: ActualizarEstudiantesComponent }
+      { path: 'estudiantes/crear', component: CrearEstudiantesComponent },
+      { path: 'estudiantes', component: MostrarEstudiantesComponent },
+      { path: 'estudiantes/edit/:id', component: ActualizarEstudiantesComponent }
     ]
   },
   { path: '**', redirectTo: '/login-students' }
