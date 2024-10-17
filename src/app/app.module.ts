@@ -26,7 +26,6 @@ import { EliminarAsistenciasComponent } from './components/asistencias/eliminar-
 import { CrearMateriasComponent } from './components/materias/crear-materias/crear-materias.component';
 import { MostrarMateriasComponent } from './components/materias/mostrar-materias/mostrar-materias.component';
 import { ActualizarMateriasComponent } from './components/materias/actualizar-materias/actualizar-materias.component';
-import { EliminarMateriasComponent } from './components/materias/eliminar-materias/eliminar-materias.component';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 import {  ButtonModule } from 'primeng/button';
@@ -59,7 +58,6 @@ import { MessageModule } from 'primeng/message';
     CrearMateriasComponent,
     MostrarMateriasComponent,
     ActualizarMateriasComponent,
-    EliminarMateriasComponent,
 LoginAdminComponent
   ],
   imports: [

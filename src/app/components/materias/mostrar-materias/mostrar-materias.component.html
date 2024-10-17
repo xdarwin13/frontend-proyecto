@@ -22,7 +22,7 @@
             <td class="actions-cell">
               <button pButton pRipple icon="pi pi-print" class="action-button p-button-info"></button>
               <button pButton pRipple icon="pi pi-sync" class="action-button p-button-info" [routerLink]="['/dashboard/materias/edit', materia.id]"></button>
-              <button pButton pRipple icon="pi pi-eraser" class="action-button p-button-danger" [routerLink]="['/dashboard/materias/dele', materia.id]"></button>
+              <button pButton pRipple icon="pi pi-eraser" class="action-button p-button-danger" (click)="eliminarMateria(materia.id)"></button>
             </td>
           </tr>
         </ng-template>

@@ -10,7 +10,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 // Materias
 import { CrearMateriasComponent } from './components/materias/crear-materias/crear-materias.component';
 import { MostrarMateriasComponent } from './components/materias/mostrar-materias/mostrar-materias.component';
-import { EliminarMateriasComponent } from './components/materias/eliminar-materias/eliminar-materias.component';
+
 import { ActualizarMateriasComponent } from './components/materias/actualizar-materias/actualizar-materias.component';
 
 // Asistencias
@@ -37,7 +37,6 @@ const routes: Routes = [
       // Materias
       { path: 'materias/crear', component: CrearMateriasComponent },
       { path: 'materias', component: MostrarMateriasComponent },
-      { path: 'materias/dele/:id', component: EliminarMateriasComponent },
       { path: 'materias/edit/:id', component: ActualizarMateriasComponent },
 
       // Asistencia

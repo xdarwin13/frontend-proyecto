@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MateriaService } from '../../../services/materia/materia.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-mostrar-materias',
   templateUrl: './mostrar-materias.component.html',
@@ -15,6 +16,8 @@ export class MostrarMateriasComponent implements OnInit {
   constructor(
     private materiaService: MateriaService,
     private router: Router,
+    private route: ActivatedRoute,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +33,19 @@ export class MostrarMateriasComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error al obtener las materias', err);
+      }
+    });
+  }
+
+  eliminarMateria(id: number) {
+    this.materiaService.eliminarMateria(id).subscribe({
+      next: () => {
+        this.messageService.add({ severity: 'success', summary: 'Éxito', detail: 'Materia eliminada correctamente' });
+        this.router.navigate(['/dashboard/materias']); // Redirigir a la lista de materias
+      },
+      error: (err) => {
+        console.error('Error al eliminar la materia:', err);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo eliminar la materia' });
       }
     });
   }
