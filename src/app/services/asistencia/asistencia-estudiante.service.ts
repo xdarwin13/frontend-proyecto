@@ -8,7 +8,7 @@ import { AuthadminService } from '../admin/authadmin.service';
   providedIn: 'root'
 })
 export class AsistenciaEstudianteService {
-  private apiUrl = 'http://localhost:4000/asistencias'; // Cambia esta URL a la de tu backend
+  private apiUrl = 'https://backend-proyecto-vhbm.onrender.com/asistencias'; // Cambia esta URL a la de tu backend
 
   constructor(
     private http: HttpClient,
@@ -19,7 +19,7 @@ export class AsistenciaEstudianteService {
   private getHeaders(): HttpHeaders {
     const token = this.authService.getToken(); // Obtén el token desde AuthService
     return new HttpHeaders({
-      'Authorization': `Bearer ${token}` // Incluye el token en los encabezados
+      'Authorization': `Bearer ${token}` // Incluye el token en los encabezadoss
     });
   }
 
