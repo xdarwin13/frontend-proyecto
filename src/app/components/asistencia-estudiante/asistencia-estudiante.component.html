@@ -2,7 +2,7 @@
     <h2>Registrar Asistencia - Estudiantes</h2>
   
     <div class="scanner-container" *ngIf="scannerEnabled">
-        <zxing-scanner (scanSuccess)="onCodeResult($event)" [style.max-height]="scannerHeight"></zxing-scanner>
+        <zxing-scanner (scanSuccess)="onCodeResult($event)" ></zxing-scanner>
     </div>
   
     <div *ngIf="scannedSalon">
