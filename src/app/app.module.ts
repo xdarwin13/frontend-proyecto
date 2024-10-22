@@ -37,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { InputGroupModule } from 'primeng/inputgroup';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +73,8 @@ LoginAdminComponent
     ToastModule,
     MessagesModule,
     MessageModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    InputGroupModule
     
 
   ],

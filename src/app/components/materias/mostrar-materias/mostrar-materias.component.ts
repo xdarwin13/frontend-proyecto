@@ -45,6 +45,7 @@ export class MostrarMateriasComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error al eliminar la materia:', err);
+        this.mostrarMaterias()
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo eliminar la materia' });
       }
     });

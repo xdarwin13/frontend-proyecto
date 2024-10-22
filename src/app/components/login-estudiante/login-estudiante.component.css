@@ -1,13 +1,12 @@
 
+
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color:rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
 }
-
-
 
 .login-card {
   background-color: white;
@@ -76,4 +75,11 @@ button:disabled {
   color: red;
   margin-top: 10px;
   font-size: 14px;
+}
+
+/* Mensajes de error */
+.error {
+  color: #ff4d4d;
+  font-size: 12px;
+  margin-top: 2px;
 }

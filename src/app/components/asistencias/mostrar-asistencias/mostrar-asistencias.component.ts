@@ -43,6 +43,7 @@ export class MostrarAsistenciasComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error al eliminar la asistencia:', err);
+        this.mostrarAsistencias();
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo eliminar la asistencia' });
       }
     });

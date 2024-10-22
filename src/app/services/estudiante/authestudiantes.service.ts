@@ -35,6 +35,7 @@ export class AuthestudiantesService {
         localStorage.setItem('authToken1', response.token1); // Almacena el token
         localStorage.setItem('userId1', response.student.id); // Almacena el userId
         localStorage.setItem('carrera1', response.student.carrera); // Almacena la carrera
+        localStorage.setItem('nombre1', response.student.nombre); // Almacena el nombre
 
       })
     );
@@ -82,9 +83,7 @@ export class AuthestudiantesService {
     localStorage.removeItem('authToken1');
     localStorage.removeItem('userId1');
     localStorage.removeItem('carrera1');
+    localStorage.removeItem('nombre1');
   }
-
-
-
 
 }

@@ -5,6 +5,7 @@ import { AuthestudiantesService } from '../../services/estudiante/authestudiante
 import { MateriaService } from '../../services/materia/materia.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-asistencia-estudiante',
@@ -18,14 +19,18 @@ export class AsistenciaEstudianteComponent implements OnInit, OnDestroy {
   id_estudiante: number | null = null;
   materias: any[] = [];
   scannerHeight: string = '300px';
-  materiaSubscription: Subscription | null = null;  // Variable para manejar la suscripción
+  materiaSubscription: Subscription | null = null;
+  menuVisible: boolean = false;  // Variable para manejar la visibilidad del menú
+  nombreEstudiante: string | null = null; // Agregar esta línea
+
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private asistenciaService: AsistenciaEstudianteService,
     private authService: AuthestudiantesService,
-    private materiaService: MateriaService
+    private materiaService: MateriaService,
+    private messageService: MessageService
   ) {
     this.asistenciaForm = this.fb.group({
       id_materia: ['', Validators.required],
@@ -34,12 +39,11 @@ export class AsistenciaEstudianteComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // Obtener el ID del estudiante y la carrera desde el servicio de autenticación
     this.id_estudiante = this.authService.getUserId();
     const carrera = this.authService.getCarrera();
-
+    const nombreRaw = localStorage.getItem('nombre1');
+    this.nombreEstudiante = nombreRaw ? this.capitalizarNombre(nombreRaw) : null;
     if (carrera) {
-      // Suscribirse a las materias según la carrera
       this.materiaSubscription = this.materiaService.getMateriasPorCarrera(carrera).subscribe(
         (response) => {
           this.materias = response.materias;
@@ -54,11 +58,10 @@ export class AsistenciaEstudianteComponent implements OnInit, OnDestroy {
   // Método para manejar el resultado del escaneo de QR
   onCodeResult(resultString: string) {
     if (!this.scannerEnabled) {
-      return;  // Evitar procesamiento repetido si el escáner ya está deshabilitado
+      return;
     }
-
-    this.scannedSalon = resultString;  // Obtener el resultado del QR
-    this.scannerEnabled = false;  // Deshabilitar el escáner inmediatamente después del escaneo
+    this.scannedSalon = resultString;
+    this.scannerEnabled = false;
   }
 
   // Método para registrar la asistencia del estudiante
@@ -70,24 +73,28 @@ export class AsistenciaEstudianteComponent implements OnInit, OnDestroy {
         salon: this.scannedSalon
       };
 
-      // Llamar al servicio de asistencia para registrar la asistencia
       this.asistenciaService.registrarAsistencia(asistenciaData).subscribe(
         (response) => {
-          console.log('Asistencia registrada:', response);
-
-          // Restablecer el formulario y los datos del escáner
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Éxito',
+            detail: 'Asistencia registrada correctamente'
+          });
           this.asistenciaForm.reset();
           this.scannedSalon = null;
           this.reiniciarEscaner();
         },
         (error) => {
-          console.error('Error al registrar la asistencia:', error);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'No se pudo registrar la asistencia'
+          });
         }
       );
     }
   }
 
-  // Método para reiniciar el escáner si es necesario
   reiniciarEscaner() {
     this.scannedSalon = null;
     this.scannerEnabled = true;
@@ -97,25 +104,30 @@ export class AsistenciaEstudianteComponent implements OnInit, OnDestroy {
   logout() {
     this.authService.logout();
     this.router.navigate(['/login-students']);
-    this.ngOnDestroy();  // Llamar manualmente al destroy para limpiar
+    this.ngOnDestroy();
   }
 
-  // Método para destruir recursos o desuscribirse de observables
+  // Método para mostrar/ocultar el menú del usuario
+  toggleMenu() {
+    this.menuVisible = !this.menuVisible;
+  }
+
+  // Método para ver perfil (solo la opción por ahora)
+  verPerfil() {
+    // Implementación futura
+  }
+
+
+  // Método para capitalizar el nombre del estudiante
+  capitalizarNombre(nombre: string): string {
+    return nombre
+      .toLowerCase()
+      .replace(/\b\w/g, letra => letra.toUpperCase()); // Capitaliza la primera letra de cada palabra
+  }
+  
   ngOnDestroy(): void {
     if (this.materiaSubscription) {
-      this.materiaSubscription.unsubscribe();  // Limpiar la suscripción
-    }
-  }
-
-  // Ajuste de tamaño del escáner
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-    const width = window.innerWidth;
-
-    if (width < 768) { // Pantallas pequeñas
-      this.scannerHeight = '400px';
-    } else {
-      this.scannerHeight = '400px';
+      this.materiaSubscription.unsubscribe();
     }
   }
 }

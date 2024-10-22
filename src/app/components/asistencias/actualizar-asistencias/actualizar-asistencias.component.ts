@@ -23,7 +23,7 @@ export class ActualizarAsistenciasComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private messageService: MessageService,
-    private authEstudiantesService: AuthestudiantesService, // Inyecta el servicio de estudiantes
+    private authEstudiantesService: AuthestudiantesService,
     private materiaService: MateriaService // Inyecta el servicio de materias
   ) {
     this.form = this.formBuilder.group({
@@ -52,7 +52,7 @@ export class ActualizarAsistenciasComponent implements OnInit {
           salon: data.salon,
           fecha: data.fecha,
           hora_entrada: data.hora_entrada,
-          hora_salida: data.hora_salida || '' // Maneja la opción de hora_salida
+          hora_salida: data.hora_salida || ''
         });
       },
       error: (err) => {
@@ -65,7 +65,7 @@ export class ActualizarAsistenciasComponent implements OnInit {
   getEstudiantes(): void {
     this.authEstudiantesService.getTodosLosEstudiantes().subscribe({
       next: (data) => {
-        this.estudiantes = data; // Guarda la lista de estudiantes
+        this.estudiantes = data.estudiantes; // Guarda la lista de estudiantes
       },
       error: (err) => {
         console.error('Error al obtener estudiantes:', err);
@@ -77,7 +77,7 @@ export class ActualizarAsistenciasComponent implements OnInit {
   getMaterias(): void {
     this.materiaService.getTodasLasMaterias().subscribe({
       next: (data) => {
-        this.materias = data; // Guarda la lista de materias
+        this.materias = data.materias; // Guarda la lista de materias
       },
       error: (err) => {
         console.error('Error al obtener materias:', err);

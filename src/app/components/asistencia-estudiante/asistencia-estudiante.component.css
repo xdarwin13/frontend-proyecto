@@ -1,43 +1,55 @@
+::ng-deep body {
+    background-color: rgb(245, 245, 245);
+}
+
 /* Estilo general */
 .container {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor para alinear el encabezado y el icono */
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Distribuye el h2 y el icono a los extremos */
+    align-items: center; /* Centra verticalmente los elementos */
+    margin-bottom: 15px;
 }
 
 h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
+    margin: 0; /* Elimina el margen inferior por defecto del h2 */
+    color: #000000;
 }
 
 /* Contenedor del escáner QR */
 .scanner-container {
-    max-height: 400px; /* Ajusta según sea necesario */
-    overflow: hidden; /* Oculta cualquier contenido que sobresalga */
+    max-height: 400px;
+    overflow: hidden;
     display: flex;
-    justify-content: center; /* Centra el escáner */
-    margin-bottom: 20px; /* Espaciado entre el escáner y el siguiente contenido */
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 /* Estilo del escáner QR */
 zxing-scanner {
     display: block;
     width: 100%;
-    height: auto; /* Ajustar la altura de acuerdo a la relación de aspecto */
-    max-height: 400px; /* Altura máxima para evitar que la cámara se salga del contenedor */
-    border: 2px solid #ddd;
-    border-radius: 8px;
+    height: auto;
+    max-height: 400px;
+
 }
 
 /* Mensaje del salón escaneado */
 p {
     font-size: 16px;
     font-weight: 500;
-    color: #333;
+    color: #000000;
 }
 
 button {
@@ -71,10 +83,11 @@ form div {
 }
 
 label {
-    font-size: 14px;
-    color: #555;
+    font-size: 14px ;
+    color: #000000;
     margin-bottom: 5px;
     display: block;
+    font-weight: bold;
 }
 
 input {
@@ -88,7 +101,7 @@ input {
 
 input:focus {
     outline: none;
-    border-color: #007bff;
+    border-color:#00adbe;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
 }
 
@@ -96,7 +109,7 @@ input:focus {
 .error {
     color: #ff4d4d;
     font-size: 12px;
-    margin-top: 5px;
+    margin-top: 2px;
 }
 
 /* Alineación centrada del botón */
@@ -124,8 +137,6 @@ button[type="submit"] {
     }
 }
 
-/* Meta tag para evitar zoom en móviles */
-
 /* Estilo para el select de materia */
 select {
     width: 100%;
@@ -133,49 +144,89 @@ select {
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #fff; /* Fondo blanco para el select */
-    appearance: none; /* Eliminar la flecha predeterminada */
+    background-color: #fff;
+    appearance: none;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>'); /* Añadir una flecha personalizada */
     background-repeat: no-repeat;
-    background-position: right 10px center; /* Posición de la flecha */
-    background-size: 12px; /* Tamaño de la flecha */
+    background-position: right 10px center;
+    background-size: 12px;
 }
 
 select:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #00adbe;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
 }
 
 /* Estilo adicional para mejorar el aspecto del select */
 option {
-    padding: 10px; /* Espaciado dentro de las opciones */
+    padding: 10px;
 }
 
-/* Estilo para el botón de cerrar sesión */
-.logout-button {
-    background-color: #dc3545; /* Rojo */
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+/* Estilo del contenedor del menú de usuario */
+.user-menu-container {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Estilo del icono de usuario */
+.user-icon {
     cursor: pointer;
+    color: #000000;
+    display: flex;
+    align-items: center;
+}
+
+#icon {
+    font-size: 25px;
+}
+
+/* Estilo del menú desplegable */
+.dropdown-menu {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    z-index: 999;
+}
+
+.dropdown-menu button {
+    background: none;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu button i {
+    margin-right: 8px;
+}
+
+.dropdown-menu button:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-menu button:focus {
+    outline: none;
+}
+
+.welcome-message {
     font-size: 16px;
-    transition: background-color 0.3s ease;
-    margin-top: 20px; /* Espaciado superior */
-}
-
-.logout-button:hover {
-    background-color: #c82333; /* Rojo más oscuro en hover */
-}
-
-.logout-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-/* Mejorar alineación */
-.logout-button {
-    align-self: center;
-    width: 150px; /* Ancho fijo para mantener uniformidad */
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 20px; /* Espacio entre el mensaje y el resto del contenido */
 }

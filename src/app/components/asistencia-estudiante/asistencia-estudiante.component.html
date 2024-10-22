@@ -1,15 +1,40 @@
 <div class="container">
-    <h2>Registrar Asistencia - Estudiantes</h2>
-  
-    <div class="scanner-container" *ngIf="scannerEnabled">
-        <zxing-scanner (scanSuccess)="onCodeResult($event)" ></zxing-scanner>
+    <div class="header-container">
+        <h2>Registrar Asistencia</h2>
+
+        <!-- Icono de usuario con menú desplegable -->
+        <div class="user-menu-container">
+            <div class="user-icon" (click)="toggleMenu()">
+                <i class="pi pi-user" id="icon"></i>
+            </div>
+
+            <!-- Menú desplegable -->
+            <div class="dropdown-menu" *ngIf="menuVisible">
+                <button (click)="verPerfil()">
+                    <i class="pi pi-user"></i> Ver perfil
+                </button>
+                <button (click)="logout()">
+                    <i class="pi pi-sign-out"></i> Cerrar sesión
+                </button>
+            </div>
+        </div>
     </div>
-  
+    
+     <!-- Mensaje de bienvenida -->
+     <div class="welcome-message" *ngIf="nombreEstudiante">
+        <p>Bienvenido, {{ nombreEstudiante }}</p>
+    </div>
+    
+
+    <div class="scanner-container" *ngIf="scannerEnabled">
+        <zxing-scanner (scanSuccess)="onCodeResult($event)"></zxing-scanner>
+    </div>
+
     <div *ngIf="scannedSalon">
         <p>Salón escaneado: {{ scannedSalon }}</p>
-        <button (click)="reiniciarEscaner()">Reiniciar escáner</button>
+        <button (click)="reiniciarEscaner()" style="margin-bottom: 15px;">Reiniciar escáner</button>
     </div>
-  
+
     <form [formGroup]="asistenciaForm" (ngSubmit)="registrarAsistencia()">
         <div>
             <label for="id_materia">Materia</label>
@@ -21,7 +46,7 @@
                 <small class="error">Materia es requerida</small>
             </div>
         </div>
-  
+
         <div>
             <label for="hora_salida">Hora de Salida</label>
             <input id="hora_salida" type="time" formControlName="hora_salida" />
@@ -29,13 +54,7 @@
                 <small class="error">Hora de salida es requerida</small>
             </div>
         </div>
-  
-        <button type="submit" [disabled]="!asistenciaForm.valid || !scannedSalon">
-            Registrar Asistencia
-        </button>
-            <!-- Botón para cerrar sesión -->
-    <button class="logout-button" (click)="logout()">Cerrar Sesión</button>
+
+        <button type="submit" [disabled]="!asistenciaForm.valid || !scannedSalon">Registrar Asistencia</button>
     </form>
-
-
 </div>

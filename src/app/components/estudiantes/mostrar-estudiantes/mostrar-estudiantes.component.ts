@@ -44,6 +44,7 @@ export class MostrarEstudiantesComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error al eliminar el estudiante:', err);
+        this.mostrarEstudiantes();
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo eliminar el estudiante' });
       }
     });
