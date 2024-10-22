@@ -118,24 +118,7 @@ button[type="submit"] {
     width: 150px;
 }
 
-/* Mejoras visuales para pantallas más pequeñas */
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
 
-    h2 {
-        font-size: 20px;
-    }
-
-    input {
-        font-size: 13px;
-    }
-
-    button {
-        font-size: 14px;
-    }
-}
 
 /* Estilo para el select de materia */
 select {
